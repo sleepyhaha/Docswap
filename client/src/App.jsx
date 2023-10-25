@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
 
@@ -10,7 +11,9 @@ function App() {
       <header>
         <Header />
       </header>
-      <Outlet location={location} key={location.pathname} />
+      <AnimatePresence>
+        <Outlet location={location} key={location.pathname} />
+      </AnimatePresence>
       <footer>
         <Footer />
       </footer>
