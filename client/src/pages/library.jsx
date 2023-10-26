@@ -14,7 +14,7 @@ export default function Library() {
             <p>description here</p>
             <p>price here</p>
           </div>
-          <Link to="/profile">
+          <Link to="/document">
             <button>View</button>
           </Link>
         </section>

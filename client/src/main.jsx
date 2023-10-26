@@ -11,6 +11,7 @@ import Profile from "./pages/profile.jsx";
 import SignInForm from "./components/sign-in-form";
 import SignUpForm from "./components/sign-up-form/index.jsx";
 import Library from "./pages/library.jsx";
+import Document from "./pages/document.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/library",
         element: <Library />,
+      },
+      {
+        path: "/document",
+        element: <Document />,
       },
     ],
   },
