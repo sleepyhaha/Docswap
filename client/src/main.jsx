@@ -8,6 +8,7 @@ import Home from "./pages/home.jsx";
 import Error from "./pages/error.jsx";
 import Marketplace from "./pages/marketplace.jsx";
 import Profile from "./pages/profile.jsx";
+import SignInForm from "./components/sign-in-form";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/signin",
+        element: <SignInForm />,
       },
     ],
   },
