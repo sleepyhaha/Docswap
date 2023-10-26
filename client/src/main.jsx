@@ -10,6 +10,7 @@ import Marketplace from "./pages/marketplace.jsx";
 import Profile from "./pages/profile.jsx";
 import SignInForm from "./components/sign-in-form";
 import SignUpForm from "./components/sign-up-form/index.jsx";
+import Library from "./pages/library.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUpForm />,
+      },
+      {
+        path: "/library",
+        element: <Library />,
       },
     ],
   },
