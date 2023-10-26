@@ -9,6 +9,7 @@ import Error from "./pages/error.jsx";
 import Marketplace from "./pages/marketplace.jsx";
 import Profile from "./pages/profile.jsx";
 import SignInForm from "./components/sign-in-form";
+import SignUpForm from "./components/sign-up-form/index.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignInForm />,
+      },
+      {
+        path: "/signup",
+        element: <SignUpForm />,
       },
     ],
   },
