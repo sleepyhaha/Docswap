@@ -12,6 +12,7 @@ import SignInForm from "./components/sign-in-form";
 import SignUpForm from "./components/sign-up-form/index.jsx";
 import Library from "./pages/library.jsx";
 import Document from "./pages/document.jsx";
+import Payment from "./pages/payment-page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/document",
         element: <Document />,
+      },
+      {
+        path: "/purchases",
+        element: <Payment />,
       },
     ],
   },
