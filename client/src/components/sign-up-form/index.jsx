@@ -27,7 +27,7 @@ export default function SignUpForm() {
           className="py-1 px-9 ml-1.5 text-center"
         />
       </form>
-      <Link to="/marketplace">
+      <Link to="/profile">
         <button className="mt-5"> Submit</button>
       </Link>
     </div>
