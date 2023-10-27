@@ -3,7 +3,7 @@ type User {
     _id = ID
     name = String!
     email = String!
-    description = String!
+    description = String
     uploadedDocs = [Documents]!
     purchasedDocs = [Documents]!
 }
