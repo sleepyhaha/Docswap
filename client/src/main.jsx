@@ -13,6 +13,7 @@ import SignUpForm from "./components/sign-up-form/index.jsx";
 import Library from "./pages/library.jsx";
 import Document from "./pages/document.jsx";
 import Payment from "./pages/payment-page.jsx";
+import Upload from "./pages/upload.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/purchases",
         element: <Payment />,
+      },
+      {
+        path: "/upload",
+        element: <Upload />,
       },
     ],
   },
