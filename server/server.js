@@ -1,21 +1,21 @@
 const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
+
 const path = require("path");
 const { authMiddleware } = require("./util/auth");
-const mongoose = require("mongoose");
-
+const db = require("./config/connection");
 const { typeDefs, resolvers } = require("./schemas");
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({ req }) => {
+    return authMiddleware({ req });
+  },
 });
-
-const db = mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/docswap"
-);
 
 const startApolloServer = async () => {
   await server.start();
