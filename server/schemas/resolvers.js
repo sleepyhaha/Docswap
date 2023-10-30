@@ -43,12 +43,16 @@ const Resolvers = {
     },
 
     uploadDoc: async (parent, args, context) => {
+      console.log(context.user);
       if (context.user) {
+        const document = new Documents(args);
+        await document.save();
         const user = await User.findByIdAndUpdate(context.user._id, args, {
           new: true,
-          $push: { uploadedDocs: Documents },
+          $push: { uploadedDocs: document._id },
         });
 
+        console.log(user);
         return user;
       }
 
