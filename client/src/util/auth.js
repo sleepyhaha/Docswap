@@ -15,20 +15,20 @@ function isTokenExpired(token) {
   }
 }
 
-const login = (token) => {
+const signIn = (token) => {
   localStorage.setItem("id_token", token);
 
   window.location.assign("/");
 };
 
-const logout = () => {
+const signOut = () => {
   localStorage.removeItem("id_token");
   window.location.assign("/");
 };
 
-const loggedIn = () => {
+const signedIn = () => {
   const token = getToken();
   return !!token && !isTokenExpired(token);
 };
 
-export { loggedIn, isTokenExpired, getToken, login, logout };
+export { signedIn, isTokenExpired, getToken, signIn, signOut };
