@@ -2,7 +2,6 @@ import { Widget } from "@uploadcare/react-widget";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPLOAD } from "../util/mutations";
-import env from "react-dotenv";
 
 export default function Upload() {
   const [upload] = useMutation(UPLOAD);
@@ -21,7 +20,7 @@ export default function Upload() {
 
     return mutationResponse;
   };
-  // console.log(env.UC_KEY);
+
   return (
     <div className="h-2/3">
       <section className="flex justify-center w-full">
@@ -60,11 +59,15 @@ export default function Upload() {
         </form>
         <form>
           <p className="float-left"> Preview: </p>
-          <Widget publicKey={env.UC_KEY} name="preview" id="preview" />
+          <Widget publicKey={process.env.UC_KEY} name="preview" id="preview" />
         </form>
         <form>
           <label htmlFor="file"> Document: </label>
-          <Widget publicKey={env.UC_KEY} name="location" id="location" />
+          <Widget
+            publicKey={process.env.UC_KEY}
+            name="location"
+            id="location"
+          />
         </form>
         <button onSubmit={handleSubmit}>Submit</button>
       </div>
