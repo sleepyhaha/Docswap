@@ -9,7 +9,7 @@ import { setContext } from "@apollo/client/link/context";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { AnimatePresence } from "framer-motion";
-
+import "dotenv/config";
 import "./App.css";
 
 const http = createHttpLink({

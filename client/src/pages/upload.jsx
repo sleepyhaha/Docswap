@@ -20,7 +20,7 @@ export default function Upload() {
 
     return mutationResponse;
   };
-
+  console.log(process.env.UC_KEY);
   return (
     <div className="h-2/3">
       <section className="flex justify-center w-full">
@@ -59,16 +59,12 @@ export default function Upload() {
         </form>
         <form>
           <p className="float-left"> Preview: </p>
-          <Widget
-            publicKey={import.meta.env.UC_KEY}
-            name="preview"
-            id="preview"
-          />
+          <Widget publicKey={process.env.UC_KEY} name="preview" id="preview" />
         </form>
         <form>
           <label htmlFor="file"> Document: </label>
           <Widget
-            publicKey={import.meta.env.UC_KEY}
+            publicKey={process.env.UC_KEY}
             name="location"
             id="location"
           />
