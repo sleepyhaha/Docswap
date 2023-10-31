@@ -39,13 +39,12 @@ export const UPLOAD = gql`
       preview: $preview
       location: $location
     ) {
-        title
-        description
-        author
-        price
-        preview
-        location
-        }
+      title
+      description
+      author
+      price
+      preview
+      location
     }
   }
 `;
