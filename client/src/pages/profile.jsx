@@ -24,6 +24,9 @@ export default function Profile() {
           <Link to="/purchases">
             <button>View purchases</button>
           </Link>
+          <Link to="/upload">
+            <button>Upload</button>
+          </Link>
         </aside>
       </div>
     </div>
