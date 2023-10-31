@@ -2,6 +2,7 @@ import { Widget } from "@uploadcare/react-widget";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { UPLOAD } from "../util/mutations";
+const apiKey = import.meta.env.VITE_UC_KEY;
 
 export default function Upload() {
   const [upload] = useMutation(UPLOAD);
@@ -59,15 +60,11 @@ export default function Upload() {
         </form>
         <form>
           <p className="float-left"> Preview: </p>
-          <Widget publicKey={process.env.UC_KEY} name="preview" id="preview" />
+          <Widget publicKey={apiKey} name="preview" id="preview" />
         </form>
         <form>
           <label htmlFor="file"> Document: </label>
-          <Widget
-            publicKey={process.env.UC_KEY}
-            name="location"
-            id="location"
-          />
+          <Widget publicKey={apiKey} name="location" id="location" />
         </form>
         <button onSubmit={handleSubmit}>Submit</button>
       </div>
