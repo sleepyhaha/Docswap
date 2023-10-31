@@ -5,10 +5,10 @@
   "main": "server/server.js",
   "scripts": {
     "start": "react-dotenv && server/server.js",
-    "develop": "concurrently \"react-dotenv && cd server && npm run watch\" \"react-dotenv && cd client && npm run dev\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && react-dotenv && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "react-dotenv && cd client && npm run build"
+    "build": "cd client && react-dotenv && npm run build"
   },
   "author": "",
   "license": "ISC",
