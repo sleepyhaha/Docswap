@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import UserContext from "../../util/UserContext";
 import { signOut, signedIn } from "../../util/auth";
 
 export default function Header() {
-  const user = useContext(UserContext);
   return (
     <nav className=" bg-indigo-950 p-5">
       <Link to="/">
