@@ -5,9 +5,9 @@ const Resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          populate: "Documents",
-        });
+        const user = await User.findById(context.user._id)
+          .populate("uploadedDocs")
+          .populate("purchasedDocs");
 
         return user;
       }
