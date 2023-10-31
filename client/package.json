@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@uploadcare/react-widget": "^2.4.5",
     "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
     "graphql": "^16.8.1",
     "jwt-decode": "^3.1.2",
