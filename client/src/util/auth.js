@@ -17,8 +17,6 @@ function isTokenExpired(token) {
 
 const signIn = (token) => {
   localStorage.setItem("id_token", token);
-
-  window.location.assign("/");
 };
 
 const signOut = () => {
