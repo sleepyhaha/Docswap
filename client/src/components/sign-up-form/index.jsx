@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../../util/mutations";
-import { login } from "../../util/auth";
+import { signIn } from "../../util/auth";
 
 export default function SignUpForm() {
   const [formState, setFormState] = useState({
@@ -23,7 +23,7 @@ export default function SignUpForm() {
       },
     });
     const token = response.data.signUp.token;
-    login(token);
+    signIn(token);
     console.log(response);
   };
 
