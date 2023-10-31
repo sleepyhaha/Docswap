@@ -37,7 +37,7 @@ function App() {
         <Header />
       </header>
       <AnimatePresence>
-        <Outlet location={location} key={location.pathname} />
+        <Outlet key={location.pathname} />
       </AnimatePresence>
       <footer>
         <Footer />
