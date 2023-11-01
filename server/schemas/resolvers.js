@@ -44,8 +44,17 @@ const Resolvers = {
 
     uploadDoc: async (parent, args, context) => {
       console.log(context.user);
+      console.log(args);
       if (context.user) {
-        const document = new Documents(args);
+        const { title, description, price, preview, location } = args;
+        const document = new Documents({
+          title,
+          description,
+          price,
+          preview,
+          location,
+          author: context.user._id,
+        });
         await document.save();
         const user = await User.findByIdAndUpdate(context.user._id, args, {
           new: true,
@@ -53,7 +62,7 @@ const Resolvers = {
         });
 
         console.log(user);
-        return user;
+        return document;
       }
 
       throw AuthenticationError;
