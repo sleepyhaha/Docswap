@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNIN } from "../../util/mutations";
 import { signIn } from "../../util/auth";
 
 export default function SignInForm() {
-  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -14,7 +13,7 @@ export default function SignInForm() {
   const [logIn] = useMutation(SIGNIN);
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventdefault();
     try {
       const response = await logIn({
         variables: {
@@ -22,12 +21,8 @@ export default function SignInForm() {
           password: formState.password,
         },
       });
-
-      const token = response.data.login.token;
-      console.log(response);
+      const token = response.data.signIn.token;
       signIn(token);
-
-      window.location.href = "/profile";
     } catch (err) {
       console.log(err);
     }
@@ -68,10 +63,9 @@ export default function SignInForm() {
           onChange={handleChange}
         />
       </div>
-
-      <button type="submit" className="mt-5">
-        Submit
-      </button>
+      <Link to="/marketplace">
+        <button className="mt-5"> Submit</button>
+      </Link>
     </form>
   );
 }
