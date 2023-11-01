@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Widget } from "@uploadcare/react-widget";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../../util/mutations";
 import { signIn } from "../../util/auth";
+const apiKey = import.meta.env.VITE_UC_KEY;
 
 export default function SignUpForm() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     password: "",
+    description: "",
+    profilePic: "",
   });
 
   const [signUp] = useMutation(SIGNUP);
@@ -20,11 +23,16 @@ export default function SignUpForm() {
         name: formState.name,
         email: formState.email,
         password: formState.password,
+        description: formState.description,
+        profilePic: formState.profilePic,
       },
     });
     const token = response.data.signUp.token;
     signIn(token);
     console.log(response);
+
+    window.location.href = "/profile";
+    return response;
   };
 
   const handleChange = (event) => {
@@ -33,6 +41,14 @@ export default function SignUpForm() {
       ...formState,
       [name]: value,
     });
+  };
+
+  const handlePicChange = (data) => {
+    setFormState({
+      ...formState,
+      profilePic: data.uuid,
+    });
+    console.log(data.uuid);
   };
 
   return (
@@ -71,6 +87,26 @@ export default function SignUpForm() {
           id="password"
           className="py-1 px-9 ml-1.5 text-center"
           onChange={handleChange}
+        />
+      </div>
+      <div className="w-1/2 flex mt-5 mr-4 items-center">
+        <p className=" text-2xl">Description:</p>
+        <textarea
+          rows="5"
+          placeholder="Tell us about yourself"
+          name="description"
+          id="description"
+          className="ml-10 h-32 w-64 text-center"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label className="float-left"> Profile Picture: </label>
+        <Widget
+          publicKey={apiKey}
+          onChange={handlePicChange}
+          name="profilePic"
+          id="profilePic"
         />
       </div>
 
