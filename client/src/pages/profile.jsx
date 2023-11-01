@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../util/queries";
+import UserContext from "../util/usercontext";
+import { useContext } from "react";
 
 export default function Profile() {
+  const user = useContext(UserContext);
+
   return (
     <div className=" h-2/3">
       <section className="flex justify-center w-full">
-        <h1>My Profile</h1>
+        <h1>{user ? `${user.name}'s Profile` : "My Profile"}</h1>
       </section>
       <div className="mt-28 columns-2 h-full mx-10">
         <section className="h-full mx-5">
