@@ -17,12 +17,14 @@ export const SIGNUP = gql`
     $email: String!
     $password: String!
     $description: String!
+    $profilePic: String
   ) {
     signUp(
       name: $name
       email: $email
       password: $password
       description: $description
+      profilePic: $profilePic
     ) {
       token
       user {

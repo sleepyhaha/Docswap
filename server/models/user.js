@@ -26,6 +26,10 @@ const userSchema = new Schema({
     type: String,
   },
 
+  profilePic: {
+    type: String,
+  },
+
   uploadedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],
 
   purchasedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],

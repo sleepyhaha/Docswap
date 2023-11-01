@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Widget } from "@uploadcare/react-widget";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../../util/mutations";
 import { signIn } from "../../util/auth";
+const apiKey = import.meta.env.VITE_UC_KEY;
 
 export default function SignUpForm() {
   const [formState, setFormState] = useState({
@@ -10,6 +11,7 @@ export default function SignUpForm() {
     email: "",
     password: "",
     description: "",
+    profilePic: "",
   });
 
   const [signUp] = useMutation(SIGNUP);
@@ -22,6 +24,7 @@ export default function SignUpForm() {
         email: formState.email,
         password: formState.password,
         description: formState.description,
+        profilePic: formState.profilePic,
       },
     });
     const token = response.data.signUp.token;
@@ -29,6 +32,7 @@ export default function SignUpForm() {
     console.log(response);
 
     window.location.href = "/profile";
+    return response;
   };
 
   const handleChange = (event) => {
@@ -37,6 +41,14 @@ export default function SignUpForm() {
       ...formState,
       [name]: value,
     });
+  };
+
+  const handlePicChange = (data) => {
+    setFormState({
+      ...formState,
+      profilePic: data.uuid,
+    });
+    console.log(data.uuid);
   };
 
   return (
@@ -86,6 +98,15 @@ export default function SignUpForm() {
           id="description"
           className="ml-10 h-32 w-64 text-center"
           onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label className="float-left"> Profile Picture: </label>
+        <Widget
+          publicKey={apiKey}
+          onChange={handlePicChange}
+          name="profilePic"
+          id="profilePic"
         />
       </div>
 
