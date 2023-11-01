@@ -56,12 +56,17 @@ const Resolvers = {
           author: context.user._id,
         });
         await document.save();
-        const user = await User.findByIdAndUpdate(context.user._id, args, {
-          new: true,
-          $push: { uploadedDocs: document._id },
-        });
-
-        console.log(user);
+        try {
+          const result = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            {
+              $push: { uploadedDocs: document._id },
+            }
+          );
+          console.log(result);
+        } catch (error) {
+          console.error(error);
+        }
         return document;
       }
 
