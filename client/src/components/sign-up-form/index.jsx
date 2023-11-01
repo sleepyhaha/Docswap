@@ -27,6 +27,8 @@ export default function SignUpForm() {
     const token = response.data.signUp.token;
     signIn(token);
     console.log(response);
+
+    window.location.href = "/profile";
   };
 
   const handleChange = (event) => {
