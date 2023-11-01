@@ -25,7 +25,7 @@ type Auth {
 
 type Mutation {
     login(email: String!, password: String!): Auth
-    signUp(name: String!, email: String!, password: String!, description: String!): Auth
+    signUp(name: String!, email: String!, password: String!, description: String!, profilePic: String!): Auth
     uploadDoc(title: String!, author: ID!, description: String!, price: Int!, preview: String!, location: String!): Documents
 }
 
