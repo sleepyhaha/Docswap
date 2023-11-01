@@ -8,11 +8,17 @@ const Resolvers = {
         const user = await User.findById(context.user._id)
           .populate("uploadedDocs")
           .populate("purchasedDocs");
-
+        console.log(user);
         return user;
       }
 
       throw AuthenticationError;
+    },
+
+    getUser: async (parent, { id }, context) => {
+      const user = await User.findById(id);
+
+      return user;
     },
   },
 

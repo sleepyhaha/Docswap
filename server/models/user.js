@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const Documents = require("./documents");
 
 const userSchema = new Schema({
   name: {
@@ -27,9 +26,13 @@ const userSchema = new Schema({
     type: String,
   },
 
-  uploadedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],
+  profilePic: {
+    type: String,
+  },
 
-  purchasedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],
+  uploadedDocs: [{ type: Schema.Types.ObjectId, ref: "documents" }],
+
+  purchasedDocs: [{ type: Schema.Types.ObjectId, ref: "documents" }],
 });
 
 userSchema.pre("save", async function (next) {
