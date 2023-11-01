@@ -25,6 +25,7 @@ const UserProvider = ({ children }) => {
       setUser(data.me);
     }
   }, [loading, error, data]);
+  console.log(data);
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
 
