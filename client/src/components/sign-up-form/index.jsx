@@ -9,6 +9,7 @@ export default function SignUpForm() {
     name: "",
     email: "",
     password: "",
+    description: "",
   });
 
   const [signUp] = useMutation(SIGNUP);
@@ -20,6 +21,7 @@ export default function SignUpForm() {
         name: formState.name,
         email: formState.email,
         password: formState.password,
+        description: formState.description,
       },
     });
     const token = response.data.signUp.token;
@@ -70,6 +72,17 @@ export default function SignUpForm() {
           name="password"
           id="password"
           className="py-1 px-9 ml-1.5 text-center"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="w-1/2 flex mt-5 mr-4 items-center">
+        <p className=" text-2xl">Description:</p>
+        <textarea
+          rows="5"
+          placeholder="Tell us about yourself"
+          name="description"
+          id="description"
+          className="ml-10 h-32 w-64 text-center"
           onChange={handleChange}
         />
       </div>
