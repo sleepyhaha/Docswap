@@ -17,7 +17,7 @@ export const SIGNUP = gql`
     $email: String!
     $password: String!
     $description: String!
-    $profilePic: String!
+    $profilePic: String
   ) {
     signUp(
       name: $name
