@@ -24,3 +24,20 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const GET_USER = gql`
+  query getUser($id: ID!) {
+    getUser(id: $id) {
+      _id
+      name
+      description
+      profilePic
+      uploadedDocs {
+        title
+        description
+        price
+        location
+      }
+    }
+  }
+`;
