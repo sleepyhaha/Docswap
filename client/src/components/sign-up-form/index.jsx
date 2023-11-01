@@ -101,7 +101,7 @@ export default function SignUpForm() {
         />
       </div>
       <div>
-        <label className="float-left"> Preview: </label>
+        <label className="float-left"> Profile Picture: </label>
         <Widget
           publicKey={apiKey}
           onChange={handlePicChange}
