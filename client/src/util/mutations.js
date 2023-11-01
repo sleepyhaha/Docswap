@@ -25,9 +25,10 @@ export const SIGNUP = gql`
 export const UPLOAD = gql`
   mutation uploadDoc(
     $title: String!
-    $author: User!
+    $author: ID!
     $description: String!
     $price: Int!
+    $preview: String!
     $location: String!
   ) {
     uploadDoc(

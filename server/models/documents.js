@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const User = require("./user");
 
 const docSchema = new Schema({
-  author: [{ type: Schema.Types.ObjectId, ref: User }],
+  author: { type: Schema.Types.ObjectId, ref: "User" },
 
   title: {
     type: String,

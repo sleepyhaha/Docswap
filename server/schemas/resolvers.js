@@ -5,9 +5,9 @@ const Resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          populate: "Documents",
-        });
+        const user = await User.findById(context.user._id)
+          .populate("uploadedDocs")
+          .populate("purchasedDocs");
 
         return user;
       }
@@ -44,16 +44,30 @@ const Resolvers = {
 
     uploadDoc: async (parent, args, context) => {
       console.log(context.user);
+      console.log(args);
       if (context.user) {
-        const document = new Documents(args);
-        await document.save();
-        const user = await User.findByIdAndUpdate(context.user._id, args, {
-          new: true,
-          $push: { uploadedDocs: document._id },
+        const { title, description, price, preview, location } = args;
+        const document = new Documents({
+          title,
+          description,
+          price,
+          preview,
+          location,
+          author: context.user._id,
         });
-
-        console.log(user);
-        return user;
+        await document.save();
+        try {
+          const result = await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            {
+              $push: { uploadedDocs: document._id },
+            }
+          );
+          console.log(result);
+        } catch (error) {
+          console.error(error);
+        }
+        return document;
       }
 
       throw AuthenticationError;

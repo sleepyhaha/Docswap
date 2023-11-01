@@ -4,12 +4,29 @@ import {
   ApolloProvider,
   InMemoryCache,
   createHttpLink,
+  useQuery,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
+import { useState, useEffect } from "react";
+import UserContext from "./util/usercontext";
+import { GET_ME } from "./util/queries";
+
+const UserProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  const { loading, error, data } = useQuery(GET_ME);
+
+  useEffect(() => {
+    if (!loading && !error && data) {
+      setUser(data.me);
+    }
+  }, [loading, error, data]);
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+};
 
 const http = createHttpLink({
   uri: "/graphql",
@@ -33,15 +50,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <header>
-        <Header />
-      </header>
-      <AnimatePresence>
-        <Outlet location={location} key={location.pathname} />
-      </AnimatePresence>
-      <footer>
-        <Footer />
-      </footer>
+      <UserProvider>
+        <header>
+          <Header />
+        </header>
+        <AnimatePresence>
+          <Outlet key={location.pathname} />
+        </AnimatePresence>
+        <footer>
+          <Footer />
+        </footer>
+      </UserProvider>
     </ApolloProvider>
   );
 }

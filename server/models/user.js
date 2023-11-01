@@ -27,9 +27,9 @@ const userSchema = new Schema({
     type: String,
   },
 
-  uploadedDocs: [Documents.schema],
+  uploadedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],
 
-  purchasedDocs: [Documents.schema],
+  purchasedDocs: [{ type: Schema.Types.ObjectId, ref: "Documents" }],
 });
 
 userSchema.pre("save", async function (next) {
