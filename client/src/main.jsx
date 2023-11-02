@@ -56,6 +56,10 @@ const router = createBrowserRouter([
         element: <Library />,
       },
       {
+        path: "/payment",
+        element: <Payment />,
+      },
+      {
         path: "/upload",
         element: <Upload />,
       },
