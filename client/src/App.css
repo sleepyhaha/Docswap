@@ -1,3 +1,8 @@
+#tsparticles {
+  z-index: -100;
+  position: fixed;
+}
+
 #root {
   width: 100vw;
   margin: 0 auto;
