@@ -20,7 +20,7 @@ export default function Document() {
           <br />
           <p>$$$$</p>
           <br />
-          <Link to="/purchases">
+          <Link to="/payment">
             <button>Purchase</button>
           </Link>
         </aside>

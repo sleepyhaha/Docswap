@@ -41,25 +41,25 @@ export default function SignInForm() {
       className="flex flex-col justify-center items-center relative left-40"
       onSubmit={handleSubmit}
     >
-      <div className="w-1/2 flex mt-56 items-center">
-        <p className="mx-7 text-2xl">Email:</p>
+      <div className=" flex mt-56">
+        <p className="mr-12 text-2xl">Email:</p>
         <input
           type="email"
           name="email"
           id="email"
           placeholder={"Enter your email here"}
-          className="ml-10 py-1 px-9 text-center"
+          className=" py-1 px-9 m-auto text-center"
           onChange={handleChange}
         />
       </div>
-      <div className="w-1/2 flex mt-5 items-center">
-        <p className="mr-12 text-2xl">Password:</p>
+      <div className=" flex mt-5 ">
+        <p className="m-auto text-2xl">Password:</p>
         <input
           type="password"
           name="password"
           id="password"
           placeholder={"Enter your password here"}
-          className="py-1 px-9 ml-1.5 text-center"
+          className="py-1 px-9 ml-1.5 m-auto text-center"
           onChange={handleChange}
         />
       </div>

@@ -57,7 +57,7 @@ export default function SignUpForm() {
       className="flex flex-col justify-center items-center relative left-40"
       onSubmit={handleSubmit}
     >
-      <div className="w-1/2 flex mt-56 items-center">
+      <div className=" flex mt-56 ">
         <p className="mx-7 text-2xl">Name: </p>
         <input
           type="string"
@@ -68,7 +68,7 @@ export default function SignUpForm() {
           onChange={handleChange}
         />
       </div>
-      <div className="w-1/2 flex mt-5 items-center">
+      <div className=" flex mt-5 ">
         <p className="mx-7 text-2xl">Email:</p>
         <input
           type="email"
@@ -79,7 +79,7 @@ export default function SignUpForm() {
           onChange={handleChange}
         />
       </div>
-      <div className="w-1/2 flex mt-5 items-center">
+      <div className=" flex mt-5 ">
         <p className="mr-12 text-2xl">Password:</p>
         <input
           type="password"
@@ -90,7 +90,7 @@ export default function SignUpForm() {
           onChange={handleChange}
         />
       </div>
-      <div className="w-1/2 flex mt-5 mr-4 items-center">
+      <div className=" flex mt-5 mr-4 items-center">
         <p className=" text-2xl">Description:</p>
         <textarea
           rows="5"
