@@ -14,6 +14,8 @@ import Library from "./pages/library.jsx";
 import Document from "./pages/document.jsx";
 import Payment from "./pages/payment-page.jsx";
 import Upload from "./pages/upload.jsx";
+import Success from "./components/success/index.jsx";
+import MyPurchases from "./pages/mypurchases.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,11 +53,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/purchases",
-        element: <Payment />,
+        element: <Library />,
       },
       {
         path: "/upload",
         element: <Upload />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
+      },
+      {
+        path: "/mypurchases",
+        element: <MyPurchases />,
       },
     ],
   },

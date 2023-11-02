@@ -3,10 +3,12 @@ import { useState, useContext } from "react";
 import { useMutation } from "@apollo/client";
 import UserContext from "../util/usercontext";
 import { UPLOAD } from "../util/mutations";
+import { useNavigate } from "react-router-dom";
 const apiKey = import.meta.env.VITE_UC_KEY;
 
 export default function Upload() {
   const user = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [formState, setFormState] = useState({
     title: "",
@@ -32,7 +34,7 @@ export default function Upload() {
         },
       });
       console.log(response);
-      return response;
+      navigate("/success");
     } catch (err) {
       console.log(err);
     }
@@ -76,35 +78,37 @@ export default function Upload() {
             type="string"
             name="title"
             id="title"
-            placeholder={"Enter your title here"}
+            placeholder={"Enter your title"}
             className="ml-8 py-1 px-9 text-center"
             onChange={handleChange}
           />
         </div>
-        <div className="w-1/2 flex mt-5 items-center">
-          <p className="mx-7 text-2xl">Description:</p>
+        <div className="w-1/2 flex mt-5 mr-14 items-center ">
+          <p className=" text-2xl">Description:</p>
           <input
             type="string"
             name="description"
             id="description"
-            placeholder={"Enter your description here"}
+            placeholder={"Enter your description"}
             className="ml-10 py-1 px-9 text-center"
             onChange={handleChange}
           />
         </div>
-        <div className="w-1/2 flex mt-5 items-center">
+        <div className="w-1/2 flex mt-5 ml-14 items-center">
           <p className="mr-12 text-2xl">Price:</p>
           <input
             type="integer"
             name="price"
             id="price"
-            placeholder={"Enter your price here"}
+            placeholder={"Enter your price"}
             className="py-1 px-9 ml-1.5 text-center"
             onChange={handleChange}
           />
         </div>
         <div>
-          <p className="float-left"> Preview: </p>
+          <label htmlFor="preview" className="float-left mt-2 mr-2">
+            Preview:
+          </label>
           <Widget
             publicKey={apiKey}
             onChange={handlePreviewChange}
@@ -121,7 +125,9 @@ export default function Upload() {
             id="location"
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" className="bg-indigo-900">
+          Submit
+        </button>
       </form>
     </div>
   );

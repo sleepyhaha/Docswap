@@ -11,9 +11,10 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import { AnimatePresence } from "framer-motion";
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import UserContext from "./util/usercontext";
 import { GET_ME } from "./util/queries";
+import Particle from "./util/Particles";
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -55,9 +56,12 @@ function App() {
         <header>
           <Header />
         </header>
+
         <AnimatePresence>
           <Outlet key={location.pathname} />
+          <Particle />
         </AnimatePresence>
+
         <footer>
           <Footer />
         </footer>
