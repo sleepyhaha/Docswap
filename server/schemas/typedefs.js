@@ -5,8 +5,8 @@ type User {
     email: String!
     description: String
     profilePic: String
-    uploadedDocs: [Documents]!
-    purchasedDocs: [Documents]!
+    uploadedDocs: [Documents]
+    purchasedDocs: [Documents]
 }
 
 type Documents {
