@@ -72,7 +72,7 @@ export default function Upload() {
         className="flex flex-col justify-end items-center relative left-40"
         onSubmit={handleSubmit}
       >
-        <div className="w-1/2 flex mt-56 items-center">
+        <div className="w-1/2 flex ml-80 mt-56 ">
           <p className="mx-7 text-2xl">Title: </p>
           <input
             type="string"
@@ -83,7 +83,7 @@ export default function Upload() {
             onChange={handleChange}
           />
         </div>
-        <div className="w-1/2 flex mt-5 mr-14 items-center ">
+        <div className="w-1/2 flex ml-80 mt-5 mr-14 ">
           <p className=" text-2xl">Description:</p>
           <input
             type="string"
@@ -94,7 +94,7 @@ export default function Upload() {
             onChange={handleChange}
           />
         </div>
-        <div className="w-1/2 flex mt-5 ml-14 items-center">
+        <div className="w-1/2 flex ml-96 mt-5">
           <p className="mr-12 text-2xl">Price:</p>
           <input
             type="integer"
@@ -105,7 +105,7 @@ export default function Upload() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="mr-96">
           <label htmlFor="preview" className="float-left mt-2 mr-2">
             Preview:
           </label>
@@ -116,7 +116,7 @@ export default function Upload() {
             id="preview"
           />
         </div>
-        <div>
+        <div className="mr-96">
           <label htmlFor="file"> Document: </label>
           <Widget
             publicKey={apiKey}
@@ -125,7 +125,7 @@ export default function Upload() {
             id="location"
           />
         </div>
-        <button type="submit" className="bg-indigo-900">
+        <button type="submit" className="bg-indigo-900 mr-96">
           Submit
         </button>
       </form>
