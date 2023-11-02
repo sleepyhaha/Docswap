@@ -1,16 +1,15 @@
-import { PaymentForm } from "react-square-web-payments-sdk";
+import { Link } from "react-router-dom";
 
 export default function Payment() {
   return (
     <div>
-      <PaymentForm
-        applicationId="sandbox-sq0idb-ekhgTXBX9i666DmTmQ-kpA"
-        cardTokenizeResponseReceived={(token, verifiedBuyer) => {
-          console.log("token:", token);
-          console.log("verifiedBuyer:", verifiedBuyer);
-        }}
-        locationId="LTQRCJ9R7PYGW"
-      ></PaymentForm>
+      <Link to={"/Success"}>
+        <img
+          src="../../public/Screenshot 2023-11-02 164053.png"
+          alt="payment form"
+          className="ml-40 mt-40"
+        />
+      </Link>
     </div>
   );
 }
