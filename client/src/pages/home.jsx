@@ -1,19 +1,5 @@
 import { easeOut, motion } from "framer-motion";
-
-const animation = {
-  initial: {
-    opacity: 0,
-    y: "10vh",
-  },
-  animate: {
-    opacity: 1,
-    y: "0vh",
-    transition: {
-      duration: 0.7,
-      ease: easeOut,
-    },
-  },
-};
+import { animation } from "../util/animation";
 
 export default function Home() {
   return (
