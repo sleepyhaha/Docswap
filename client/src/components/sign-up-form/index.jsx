@@ -3,9 +3,11 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../../util/mutations";
 import { signIn } from "../../util/auth";
+import { useNavigate } from "react-router-dom";
 const apiKey = import.meta.env.VITE_UC_KEY;
 
 export default function SignUpForm() {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -31,8 +33,9 @@ export default function SignUpForm() {
     signIn(token);
     console.log(response);
 
-    window.location.href = "/profile";
-    return response;
+    if (response) {
+      navigate("/profile");
+    }
   };
 
   const handleChange = (event) => {
