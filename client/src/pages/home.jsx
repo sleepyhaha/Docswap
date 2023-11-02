@@ -8,7 +8,7 @@ export default function Home() {
         variants={animation}
         initial="initial"
         animate="animate"
-        className=" relative mx-48 top-1/2"
+        className=" relative mx-48 top-64"
       >
         Welcome to the digital bookswap
       </motion.h1>
